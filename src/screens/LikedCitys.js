@@ -2,7 +2,7 @@ import { View, StyleSheet, FlatList } from "react-native";
 import { useDispatch, useSelector } from 'react-redux';
 import CardView from '../components/cardView';
 
-const LikedCity = () => {
+const LikedCity = ( {navigation} ) => {
     const citiesInfo = useSelector((state) => state.citiesInfo)
     const dispatch = useDispatch();
   return (
@@ -11,7 +11,7 @@ const LikedCity = () => {
         style={styles.list}
         data={citiesInfo}
         keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => ( item.like ? <CardView dispatch={dispatch} item={item}/> : <View></View> )}
+        renderItem={({ item }) => ( item.like ? <CardView dispatch={dispatch} navigation={navigation} item={item}/> : <View></View> )}
       />
     </View>
   )

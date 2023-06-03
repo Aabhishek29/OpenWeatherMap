@@ -39,11 +39,23 @@ const DetailScreen = ( {route} ) => {
       }else{
         return(
             <View style={styles.container}>
-                <Text>weather Main : {localData.weather[0].main}</Text>
-                <Text>weather Description {localData.weather[0].description}</Text>
-                <Text>Pressure {localData.main.pressure}</Text>
-                <Text>Humidity {localData.main.humidity}</Text>
-                <Text>Wind Speed {localData.wind.speed}</Text>
+                <Text style={styles.header}>{item.name}</Text>
+                <View style = {styles.mainContainer}>
+                    <View>
+                        <Text style={styles.textHeader}>weather Main : </Text>
+                        <Text style={styles.textHeader}>weather Description : </Text>
+                        <Text style={styles.textHeader}>Pressure : </Text>
+                        <Text style={styles.textHeader}>Humidity : </Text>
+                        <Text style={styles.textHeader}>Wind Speed : </Text>
+                    </View>
+                    <View>
+                        <Text style={styles.textHeaderAns}>{localData.weather[0].main}</Text>
+                        <Text style={styles.textHeaderAns}>{localData.weather[0].description}</Text>
+                        <Text style={styles.textHeaderAns}>{localData.main.pressure}</Text>
+                        <Text style={styles.textHeaderAns}>{localData.main.humidity}</Text>
+                        <Text style={styles.textHeaderAns}>{localData.wind.speed}</Text>
+                    </View>
+                </View>
             </View>
         )
       }
@@ -54,6 +66,25 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center'
+    },
+    mainContainer: {
+        backgroundColor: '#fff',
+        padding: 15,
+        borderRadius: 15,
+        display: 'flex',
+        flexDirection: 'row'
+    },
+    header: {
+        fontWeight: 'bold',
+        margin: 15,
+        fontSize:32 
+    },
+    textHeader: {
+        fontWeight: 'bold',
+        margin: 15 
+    },
+    textHeaderAns: {
+        margin: 15
     }
 })
 

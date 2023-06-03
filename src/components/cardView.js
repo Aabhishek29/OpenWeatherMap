@@ -16,20 +16,22 @@ const CardView = ( {dispatch, navigation ,item}) => {
     }
 
     return(
-        <View style={styles.container} onTouchStart={getLocalResponse}>
-            <View style={styles.mainContainer}>
-                <View style={styles.rightContainer}>
+        <View style={styles.container}>
+            <View style={styles.mainContainer} onTouchStart={getLocalResponse}>
+                <View style={styles.rightContainer} >
                     <Text style={styles.cityName}>{item.name}</Text>
                     <View style={{marginBottom: 10}}>
                         <Text>Latitude: {item.lat}</Text>
                         <Text>Longitude: {item.lon}</Text>
                     </View>
-                    { item.like ? <AntDesign onPress={()=> dispatch(counterData.actions.toggleLikeCities(item.id))} name="heart" size={24} color="red" />
-                        : <AntDesign onPress={()=> dispatch(counterData.actions.toggleLikeCities(item.id))} name="hearto" size={24} color="black" /> }
                 </View>
                 <View style={styles.leftContainer}>
                     <Image style={{ height: 80, width: 80 }} source={require('../../assets/hazy.png')} />
                 </View>
+            </View>
+            <View>
+                { item.like ? <AntDesign onPress={()=> dispatch(counterData.actions.toggleLikeCities(item.id))} name="heart" size={24} color="red" />
+                        : <AntDesign onPress={()=> dispatch(counterData.actions.toggleLikeCities(item.id))} name="hearto" size={24} color="black" /> }
             </View>
         </View>
     )
