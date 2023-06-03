@@ -2,7 +2,8 @@ import {
     View,
     Text,
     StyleSheet,
-    Image
+    Image,
+    TouchableOpacity
 } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import counterData from '../store/reduces';
@@ -17,7 +18,7 @@ const CardView = ( {dispatch, navigation ,item}) => {
 
     return(
         <View style={styles.container}>
-            <View style={styles.mainContainer} onTouchStart={getLocalResponse}>
+            <TouchableOpacity style={styles.mainContainer} onPress={getLocalResponse}>
                 <View style={styles.rightContainer} >
                     <Text style={styles.cityName}>{item.name}</Text>
                     <View style={{marginBottom: 10}}>
@@ -28,7 +29,7 @@ const CardView = ( {dispatch, navigation ,item}) => {
                 <View style={styles.leftContainer}>
                     <Image style={{ height: 80, width: 80 }} source={require('../../assets/hazy.png')} />
                 </View>
-            </View>
+            </TouchableOpacity>
             <View>
                 { item.like ? <AntDesign onPress={()=> dispatch(counterData.actions.toggleLikeCities(item.id))} name="heart" size={24} color="red" />
                         : <AntDesign onPress={()=> dispatch(counterData.actions.toggleLikeCities(item.id))} name="hearto" size={24} color="black" /> }
