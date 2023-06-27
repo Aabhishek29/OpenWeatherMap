@@ -15,6 +15,7 @@ const DetailScreen = ( {route} ) => {
     const { item } = route.params;
     const [localData, setLocaldata] = useState(null);
 
+    
     useEffect(() => {
         if (isFocused) {
           // Make your API call here
